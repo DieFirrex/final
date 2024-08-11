@@ -1,7 +1,12 @@
 import pygame
 import main
-import math
+from wall import  walls
+
 pygame.init()
+
+
+
+#Wall(x350, y250, Ш200, В400)
 
 '''----------start----------'''
 # Завантаження фонового зображення
@@ -15,6 +20,9 @@ player = main.Player((400,250))
 game = True
 white = (255, 255, 255)
 black = (0, 0, 0)
+
+
+
 while game:
     window.fill(white)
     for event in pygame.event.get():
@@ -24,6 +32,9 @@ while game:
     player.events(event)
     window.blit(background_image, (0, 0))
     window.blit(player.image, player.rect)
-
+    for w in walls:
+        w.draw(window)
     clock.tick(30)
     pygame.display.update()
+
+
