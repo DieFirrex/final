@@ -61,8 +61,6 @@ class Player(pygame.sprite.Sprite):
 
 
     def events(self, event):
-        if event.type == pygame.QUIT:
-            game = False
 
         if event.type == pygame.KEYDOWN:
             if event.key == pygame.K_LEFT:
