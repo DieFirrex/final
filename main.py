@@ -1,4 +1,5 @@
 import pygame
+from wall import  walls
 # hello
 
 
@@ -37,15 +38,28 @@ class Player(pygame.sprite.Sprite):
         if direction == "down":
             self.clip(self.down)
             self.rect.y += 5
+            for w in walls:
+                if self.rect.colliderect(w.rect):
+                    self.rect.y -= 5
         if direction == "left":
             self.clip(self.left)
             self.rect.x -= 5  
+            for w in walls:
+                if self.rect.colliderect(w.rect):
+                    self.rect.x += 5
         if direction == "right":
             self.clip(self.right)
             self.rect.x += 5 
+            for w in walls:
+                if self.rect.colliderect(w.rect):
+                    self.rect.x -= 5
         if direction == "up":
             self.clip(self.up)
             self.rect.y -= 5 
+            for w in walls:
+                if self.rect.colliderect(w.rect):
+                    self.rect.y += 5
+            
 
         
         if direction == "stand_down":
